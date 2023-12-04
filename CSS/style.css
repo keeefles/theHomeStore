@@ -1,0 +1,112 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Allura&family=Lora&display=swap');
+
+*,
+*::after
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Bodoni Moda', serif, 'Lora', serif;
+}
+
+/* navbar */
+.navbar {
+    background-color: #a3b18a;
+    font-family: 'Lora', serif;
+}
+.navbar a {
+    position: relative;
+    font-size: 18px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: none;
+    margin-left: 40px;
+}
+.navbar a::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: .4s;
+}
+.navbar a:hover::before {
+    width: 100%;
+}
+.rounded-circle {
+    width: 100px;
+}
+
+/* main */
+.row {
+    padding-top: 20px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+#col1 {
+    font-family: 'Lora', serif;
+}
+#col2{
+    font-family: 'Bodoni Moda', serif;
+}
+#container1 {
+    display: flex;
+    margin-top: 100px;
+    width: 500px auto;
+    background-color: #a3b18a;
+    color: #fff;
+    box-shadow: 0 0 20px 0 #999;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+}
+.head2 {
+    margin-left: 10px;
+    font-family: 'Lora', serif;
+}
+.col3 {
+    margin-top: 25px;
+    width: 300px;
+    background-color: #a3b18a;
+    color: #fff;
+    box-shadow: 0 0 20px 0 #999;
+    border-radius: 15px;
+    padding: 10px;
+    height: 150px;
+}
+.col4 {
+    margin-top: 25px;
+    width: 300px;
+    background-color: #a3b18a;
+    color: #fff;
+    box-shadow: 0 0 20px 0 #999;
+    border-radius: 15px;
+    padding: 10px;
+    height: 150px;
+}
+.col5 {
+    margin-top: 25px;
+    width: 300px;
+    background-color: #a3b18a;
+    color: #fff;
+    box-shadow: 0 0 20px 0 #999;
+    border-radius: 15px;
+    padding: 10px;
+    height: 150px;
+}
+.row2{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
