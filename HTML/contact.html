@@ -51,15 +51,39 @@
 <!-- main -->
 <main id="mainContact">
   <h1 id="head3">Contact Us</h1>
-  <div class="contact-box" id="box2">
-      <form>
-        <input type="text" class="input-field" placeholder="Your Name" id="contact" required>
-        <input type="email" class="input-field" placeholder="Your Email Address" id="contact" required>
-        <input type="text" class="input-field" placeholder="Your Phone" id="contact" required>
-        <textarea type="text" class="input-field textarea-field" placeholder="Your Message" id="contact" required></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+  <div class="container3">
+    <div class="row2">
+    <div class="contact-box" id="box2">
+    <form action="https://formspree.io/f/mvojykkz" method="post">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" id="contact">Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="First Name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" id="contact">Surname</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Last Name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" id="contact">Email Address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" id="contact">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="type your message"></textarea>
+      </div>
+    <input  type="submit" name="Send" value="Submit" class="btn">
   </div>
+    </form>
+
+    <div class="col6">
+        <h3>Address</h3>
+        <p class="text-center">11 Bristol Close, Rocklands</p>
+        <h3>Phone Number</h3>
+        <p class="text-center">Aakeefah - 079 866 6734</p>
+    </div>
+  </div>
+  </div>
+
 </main>
 
 <!-- end of main -->

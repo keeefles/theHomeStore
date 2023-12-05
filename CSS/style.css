@@ -144,7 +144,7 @@ body{
 }
 #head3 {
     text-align: center;
-    padding-top: 10px;
+    padding-top: 50px;
 }
 .p2 {
     font-family:  'Lora', serif;
@@ -161,7 +161,6 @@ body{
 }
 #box2 {
     margin-top: 50px;
-    /* width: 350px auto; */
     width: 350px;
     display: flex;
     justify-content: center;
@@ -205,9 +204,32 @@ form {
     cursor: pointer;
     transition: .4s;
 }
+.head4{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+.col6{
+    width: 100vw;
+    background-color: #a3b18a;
+    color: #fff;
+    box-shadow: 0 0 20px 0 #999;
+    border-radius: 15px;
+    padding: 10px;
+    text-decoration: none;
+    height: 250px auto;
+    flex-basis: 50%;
+    margin-bottom:20px;
+}
 
 /* footer */
 .footerAbout {
+    position: relative;
+    margin-top: 300px;
+    bottom: 0%;
+    width: 100%;
+}
+.footerContact {
     position: relative;
     margin-top: 300px;
     bottom: 0%;
