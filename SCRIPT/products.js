@@ -1,8 +1,12 @@
+// display current year within the footer.
 document.querySelector('#currYear').textContent = new Date().getUTCFullYear()
 
+// declare the variables and push them into the local storage.
 let products = localStorage.getItem('products')  ?
 JSON.parse(localStorage.getItem('products')) :
     localStorage.setItem('products', JSON.stringify([
+
+// create your sample data - objects
     {
         id: 1,
         name: "Bubble Candle",
@@ -82,7 +86,7 @@ JSON.parse(localStorage.getItem('products')) :
     },
     {
         id: 12,
-        name: "Geometric Kitchenware Set",
+        name: "Geometric Dining Set",
         price: "R350",
         description: "12 Piece Rounded kitchenware with Geometric patterns. Includes 4 bowls, 4 side plates and 4 dinner plates.",
         image: "https://i.postimg.cc/1tfhj9dY/Screenshot-2023-12-05-084754.png"
@@ -90,6 +94,7 @@ JSON.parse(localStorage.getItem('products')) :
 ])
 )
 
+// display the functions and images
 let productsWrapper = document.querySelector('[data-products]')
 function displayProducts(){
     productsWrapper.innerHTML = ''
@@ -98,7 +103,7 @@ function displayProducts(){
             productsWrapper.innerHTML += 
             `
             <div class="product">
-            <img src="${products.image}" alt="${products.name}">
+            <img src="${products.image}" alt="${products.name}" >
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
@@ -112,7 +117,7 @@ displayProducts()
 
 
 
-
+// create a function which allows us to search for a specific product
 let searchProducts = document.querySelector('[data-search-products]')
 function displayProducts(){
     let productsWrapper = document.querySelector('[data-products]')
@@ -132,8 +137,10 @@ function displayProducts(){
     productsWrapper.innerHTML = "No Products"
 }
 }
+// display on the web page
 displayProducts()
 
+// add an event listener to give it purpose.
 searchProducts.addEventListener('keyup', () => {
     try{
         let searchItem = products.filter(products=>{
@@ -154,27 +161,32 @@ searchProducts.addEventListener('keyup', () => {
     } else {
         productsWrapper.innerHTML = "No Products"
     }
+    // if the following method doesn't work it should display an error message.
 }catch(e) {
     console.log(e.message);
 }
 });
 
-let prices = document.getElementById('btn')
-function sortPrice() {
+// declare a button and create a new function to sort your products by highest or lowest costs.
+
+let sort = document.querySelector('#sortButton');
+
+function productSort() {
     let highest = false;
     productsWrapper.innerHTML = ' '
     highest = highest ? false : true;
     let prod = [];
-    if(highest){
-        prod = prices.sort((prod1, prod2) => {
-            return parseInt(prod1.price.split('').slice(1, prod1.price.length).join('')) - parseInt(prod2.price.split('').slice(1, prod2.price.length).join(''));
-        } )
-    }else {
-        prod = prices.sort((prod1, prod2) => {
-            return parseInt(prod2.price.split('').slice(1, prod2.price.length).join('')) - parseInt(prod1.price.split('').slice(1, prod1.price.length).join(''));
-        } )
-    }
-}
-// displaysortPrices()
 
-prices.addEventListener('click', sortPrice);
+    if(highest) {
+        prod = products.sort((prod1, prod2) => {
+            return parseInt(prod1.price.split('').slice(1, prod1.price.length).join('')) - parseInt(prod2.price.split('').slice(1, prod2.price.length).join(''));
+        });
+    }else {
+        prod = products.sort((prod1, prod2) => {
+            return parseInt(prod2.price.split('').slice(1, prod2.price.length).join('')) - parseInt(prod1.price.split('').slice(1, prod1.price.length).join(''));
+        });
+    }
+
+    displayProducts(prod);
+}
+sort.addEventListener('click', productSort);
