@@ -1,7 +1,7 @@
 // display current year within the footer.
 document.querySelector('#currYear').textContent = new Date().getUTCFullYear()
 
-// declare the variables and push them into the local storage.
+// initialise the products from the local storage.
 let products = localStorage.getItem('products')  ?
 JSON.parse(localStorage.getItem('products')) :
     localStorage.setItem('products', JSON.stringify([
@@ -89,7 +89,8 @@ JSON.parse(localStorage.getItem('products')) :
         name: "Geometric Dining Set",
         price: "R350",
         description: "12 Piece Rounded kitchenware with Geometric patterns. Includes 4 bowls, 4 side plates and 4 dinner plates.",
-        image: "https://i.postimg.cc/1tfhj9dY/Screenshot-2023-12-05-084754.png"
+        image: "https://i.postimg.cc/1tfhj9dY/Screenshot-2023-12-05-084754.png",
+        addToCart: ""
     }
 ])
 )
@@ -107,6 +108,7 @@ function displayProducts(){
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
+        <button class="add-to-cart" data-id="${product.cart}">Add to Cart</button>
             `
         });
 }
@@ -168,7 +170,6 @@ searchProducts.addEventListener('keyup', () => {
 });
 
 // declare a button and create a new function to sort your products by highest or lowest costs.
-
 let sort = document.querySelector('#sortButton');
 
 function productSort() {
@@ -190,3 +191,27 @@ function productSort() {
     displayProducts(prod);
 }
 sort.addEventListener('click', productSort);
+
+// add an add-to-cart button.
+products = products.map(product => ({
+    ...product,
+    addToCart: `<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>`
+  }));
+  const productContainer = document.getElementById('product-container'); // Replace 'product-container' with the actual ID of your container
+
+products.forEach(product => {
+  const productElement = document.createElement('div');
+  productElement.innerHTML = `
+    <img src="${product.image}" alt="${product.name}">
+    <h3>${product.name}</h3>
+    <p>${product.price}</p>
+    <p>${product.description}</p>
+    ${product.addToCart}
+  `;
+productContainer.appendChild(productElement);
+const addToCartButton = productElement.querySelector('.add-to-cart');
+  addToCartButton.addEventListener('click', () => addToCart(product.addToCart));
+});
+function addToCart(productId) {
+    console.log(`Product ${productId} added to the cart`);
+}
