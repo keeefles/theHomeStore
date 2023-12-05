@@ -221,6 +221,12 @@ form {
     flex-basis: 50%;
     margin-bottom:20px;
 }
+/* products page */
+.head5{
+    text-align: center;
+    margin-top: 25px;
+}
+
 
 /* footer */
 .footerAbout {
