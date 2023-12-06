@@ -108,7 +108,7 @@ function displayProducts(){
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
-        <button class="add-to-cart" data-id="${product.cart}">Add to Cart</button>
+        <button class="add-to-cart" data-id="${products.cart}">Add to Cart</button>
             `
         });
 }
@@ -133,6 +133,7 @@ function displayProducts(){
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
+        <button class="add-to-cart" data-id="${products.id}">Add to Cart</button>
             `
         });
 } else {
@@ -158,6 +159,7 @@ searchProducts.addEventListener('keyup', () => {
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
+        <button class="add-to-cart" data-id="${products.id}">Add to Cart</button>
             `
         });
     } else {
