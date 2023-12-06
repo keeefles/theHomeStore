@@ -94,7 +94,7 @@ JSON.parse(localStorage.getItem('products')) :
     }
 ])
 )
-let purchase = []
+let purchase = JSON.parse(localStorage.getItem('purchase')) || []
 // display the functions and images
 let productsWrapper = document.querySelector('[data-products]')
 function displayProducts(){
@@ -146,9 +146,7 @@ function displayProducts(){
     </div>
     
     `
-
-}
-}
+}}
 // display on the web page
 displayProducts()
 
@@ -210,8 +208,6 @@ function productSort() {
 sort.addEventListener('click', productSort);
 
 // add to cart
-
-
 function addPurchase(item){
     if(item)
         purchase.push(item)
