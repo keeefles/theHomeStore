@@ -104,7 +104,7 @@ function displayProducts(){
             productsWrapper.innerHTML += 
             `
             <div class="product">
-            <img src="${products.image}" alt="${products.name}" >
+            <img src="${products.image}" alt="${products.name}" class="images2">
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
@@ -128,8 +128,8 @@ function displayProducts(){
         products.forEach((products, i) => {
             productsWrapper.innerHTML += 
             `
-            <div class="product">
-            <img src="${products.image}" alt="${products.name}">
+            <div class="col9" id="product">
+            <img src="${products.image}" alt="${products.name}" class="images2">
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
@@ -193,27 +193,3 @@ function productSort() {
     displayProducts(prod);
 }
 sort.addEventListener('click', productSort);
-
-// add an add-to-cart button.
-products = products.map(product => ({
-    ...product,
-    addToCart: `<button class="add-to-cart" data-id="${product.id}">Add to Cart</button>`
-  }));
-  const productContainer = document.getElementById('product-container'); // Replace 'product-container' with the actual ID of your container
-
-products.forEach(product => {
-  const productElement = document.createElement('div');
-  productElement.innerHTML = `
-    <img src="${product.image}" alt="${product.name}">
-    <h3>${product.name}</h3>
-    <p>${product.price}</p>
-    <p>${product.description}</p>
-    ${product.addToCart}
-  `;
-productContainer.appendChild(productElement);
-const addToCartButton = productElement.querySelector('.add-to-cart');
-  addToCartButton.addEventListener('click', () => addToCart(product.addToCart));
-});
-function addToCart(productId) {
-    console.log(`Product ${productId} added to the cart`);
-}
