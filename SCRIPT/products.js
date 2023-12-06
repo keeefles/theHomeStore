@@ -94,7 +94,7 @@ JSON.parse(localStorage.getItem('products')) :
     }
 ])
 )
-
+let purchase = []
 // display the functions and images
 let productsWrapper = document.querySelector('[data-products]')
 function displayProducts(){
@@ -108,9 +108,10 @@ function displayProducts(){
         <h3>${products.name}</h3>
         <p>${products.description}</p>
         <p>Price: ${products.price}</p>
-        <button class="add-to-cart" data-id="${products.cart}">Add to Cart</button>
+        <button class="add-to-cart" data-id="${products.cart}" onclick='addPurchase(${JSON.stringify(products)})'>Add to Cart</button>
             `
         });
+    
 }
 else{
     productsWrapper.innerHTML = "No Products"
@@ -125,25 +126,33 @@ function displayProducts(){
     let productsWrapper = document.querySelector('[data-products]')
     productsWrapper.innerHTML = " "
     if(products) {
-        products.forEach((products, i) => {
+        products.forEach((product, i) => {
             productsWrapper.innerHTML += 
             `
             <div class="col9" id="product">
-            <img src="${products.image}" alt="${products.name}" class="images2">
-        <h3>${products.name}</h3>
-        <p>${products.description}</p>
-        <p>Price: ${products.price}</p>
-        <button class="add-to-cart" data-id="${products.id}">Add to Cart</button>
+            <img src="${product.image}" alt="${product.name}" class="images2">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p>Price: ${product.price}</p>
+        <button class="add-to-cart" data-id="${product.cart}" onclick='addPurchase(${JSON.stringify(product)})'>Add to Cart</button>
             `
         });
 } else {
-    productsWrapper.innerHTML = "No Products"
+    productsWrapper.innerHTML = `
+    <div class="col">
+    <div class="spinner-border" role="status">
+    </div>
+    <p>no items found.</p>
+    </div>
+    
+    `
+
 }
 }
 // display on the web page
 displayProducts()
 
-// add an event listener to give it purpose.
+// add an event listener.
 searchProducts.addEventListener('keyup', () => {
     try{
         let searchItem = products.filter(products=>{
@@ -151,19 +160,25 @@ searchProducts.addEventListener('keyup', () => {
     })
     if(searchItem.length > 0) { 
         productsWrapper.innerHTML = ''
-        searchItem.forEach((products, i) => {
+        searchItem.forEach((product, i) => {
             productsWrapper.innerHTML += 
             `
             <div class="product">
-            <img src="${products.image}" alt="${products.name}">
-        <h3>${products.name}</h3>
-        <p>${products.description}</p>
-        <p>Price: ${products.price}</p>
-        <button class="add-to-cart" data-id="${products.id}">Add to Cart</button>
+            <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>${product.description}</p>
+        <p>Price: ${product.price}</p>
+        <button onclick='addPurchase(${JSON.stringify(product)})'>Add to Cart</button>
             `
         });
     } else {
-        productsWrapper.innerHTML = "No Products"
+        productsWrapper.innerHTML = `
+        <div class="col">
+   <div class="spinner-border" role="status">
+       </div>
+     <p>no items found</p>
+     </div>
+        `
     }
     // if the following method doesn't work it should display an error message.
 }catch(e) {
@@ -193,3 +208,12 @@ function productSort() {
     displayProducts(prod);
 }
 sort.addEventListener('click', productSort);
+
+// add to cart
+
+
+function addPurchase(item){
+    if(item)
+        purchase.push(item)
+    localStorage.setItem('purchase', JSON.stringify(purchase))
+}
