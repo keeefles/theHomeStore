@@ -46,36 +46,98 @@
             <li class="nav-item">
               <a class="nav-link" href="/HTML/contact.html">Contact</a>
             </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<!-- end of nav bar -->
-
-<!-- main -->
-<main class="container-fluid">
-  <h2 class="display-2">Admin</h2>
-  <div class="row">
-    <table>
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Price</th>
-          <th scope="col">Quantity</th>
-          <th scope="col">Total</th>
-        </tr>
-      </thead>
-      <tbody table-products></tbody>
-    </table>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- end of nav bar -->
     
-    <div class="col">
+    <!-- main -->
+    <!-- <main class="container-fluid">
+<h1 class="head5">Admin</h1>
+<div class="row">
+  <div class="col">
       <input type="text" class="form-control" admin-search required>
     </div>
     <div class="col">
-      <button class="adminSort">Sorting</button>
+      <button class="button btn-success">Sorting</button>
     </div>
   </div>
+<div class="row">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody table-products></tbody>
+      </table>
+</div> -->
+
+
+<!-- other code -->
+<main class="container-fluid">
+  <div class="container">
+    <div class="row d-flex justify-content-evenly gap-2">
+      <div class="col">
+        <button class="btn ms-2" id="sortButton2">Sort</button>
+      </div>
+      <div class="col">
+        <button class="btn me-2" id="addProducts" data-bs-toggle="modal" data-bs-target="#addNewProduct">
+          Add new products
+        </button>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="addNewProduct" tabindex="-1" aria-labelledby="addNewProductLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="addNewProductLabel">
+                Add New Product
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form class="form g-2">
+                <div class="container">
+                  <input class="form-control" type="url" placeholder="Enter the Product Image URL" name="addImage"
+                    id="addImage" required>
+                    <input class="form-control my-2" placeholder="Enter the Product Name" name="addName"
+                    id="addName" required></input>
+                    <textarea class="form-control" type="text" placeholder="Enter the Description" name="addDescription"
+                    id="addDescription" required></textarea>
+                    <input class="form-control my-2" type="text" placeholder="Enter the Product Price" name="addPrice"
+                    id="addPrice" required></input>
+                    <button type="button btn-success" class="btn" id="saveProduct">
+                      Add Product
+                    </button>
+                  </div>
+                </div>
+              </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="row" data-scroll>
+      <table class="table table-responsive">
+        <thead>
+          <th scope="col">Image</th>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Price</th>
+        </thead>
+        <tbody admin-body></tbody>
+      </table>
+    </div>
+  </div>
+
 </main>
 
 <!-- footer -->
