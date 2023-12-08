@@ -56,7 +56,7 @@
 
 <!-- main -->
   <main class="container-fluid w-100vh">
-    <h2>Admin</h2>
+    <h2 class="head5">Admin</h2>
     <div>
       <table class="table table-hover">
       <thead>
@@ -68,8 +68,8 @@
           <th scope="col" id="admin-delete">Delete</th>
         </tr>
       </thead>
-      <button admin-prod>Add</button>
-      <button onclick="sortProducts()" admin-sort>Sort</button>
+      <button class="btnAdmin" onclick="addNewProduct()" admin-prod>Add</button>
+      <button class="btnAdmin" onclick="sortProducts()" admin-sort>Sort</button>
       <tbody admin-tbody>
       </tbody>
       </table>
