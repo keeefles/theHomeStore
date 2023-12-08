@@ -198,7 +198,7 @@ searchProducts.addEventListener('keyup', () => {
 
 // declare a button and create a new function to sort your products by highest or lowest costs.
 let sort = document.querySelector('#sortButton');
-
+// sorts the products
 function productSort() {
     let highest = false;
     productsWrapper.innerHTML = ' '
