@@ -65,8 +65,7 @@ function displayUniqueProducts() {
             <p>no items found</p>
         </div>`;
     }
-}
-
+// displays the unique products only
 
 displayUniqueProducts();
 
@@ -78,7 +77,7 @@ function removePurchase(){
   cartWrapper.innerHTML = ''
 }
 btnPurchase.addEventListener('click', purchasedItem)
-
+// displays a prompt once the purchase button is clicked
 function purchasedItem(){
   if(cart){
     alert('Thank you for purchasing.')
