@@ -10,84 +10,86 @@ JSON.parse(localStorage.getItem('products')) :
     {
         id: 1,
         name: "Bubble Candle",
-        price: "R60",
+        price: 60,
         description: "perfect gift for someone with minimalistic style.",
         image: "https://i.postimg.cc/kgFrpCrN/Screenshot-2023-12-05-085816.png"
     },
     {
         id: 2,
         name: "Bamboo Steamer",
-        price: "R250",
+        price: 250,
         description: "Steam bao, fish or vegetables, essential for every Asian kitchen",
         image: "https://i.postimg.cc/9MGqyQg9/Screenshot-2023-12-05-085221.png"
     },
     {
         id: 3,
         name: "Polka Mustard Set",
-        price: "R400",
+        price: 400,
         description: "12 piece set. includes 4 dinner plates, 4 side plates and 4 soup bowls",
         image: "https://i.postimg.cc/m2K2sB60/Screenshot-2023-12-05-084745.png"
     },
     {
         id: 4,
         name: "Starter Baking Set",
-        price: "R300",
+        price: 300,
         description: "includes two silicone baking trays and a lava cake mold.",
         image: "https://i.postimg.cc/RZ367gjz/Screenshot-2023-12-05-085321.png"
     },
     {
         id: 5,
         name: "Glass Container",
-        price: "R150",
+        price: 150,
         description: "could be used for make-up, hands-towels or underwear.",
         image: "https://i.postimg.cc/jd1Y7cHN/Screenshot-2023-12-05-084903.png"
     },
     {
         id: 6,
         name: "6 Piece Knife Set",
-        price: "R200",
+        price: 200,
         description: "includes a 6 inch knife, a peeler, 8inch knife, 13 inch, 14 inch, 15 inch",
         image: "https://i.postimg.cc/0j21pHXG/Screenshot-2023-12-05-085144.png"
     },
     {
         id: 7,
         name: "Charcuterie Board Set",
-        price: "R350",
+        price: 350,
+        quantity: 1,
         description: "A set of three different boards, can be used for chopping as well.",
         image: "https://i.postimg.cc/SQ7KCBR9/Screenshot-2023-12-05-084835.png"
     },
     {
         id: 8,
         name: "Spice Container",
-        price: "R65",
+        price: 65,
+        quantity: 1,
         description: "Bamboo lid, 500ml container",
         image: "https://i.postimg.cc/VLmdhYp4/Screenshot-2023-12-05-084316.png"
     },
     {
         id: 9,
         name: "Rounded Charcuterie Board",
-        price: "R180",
+        price: 180,
         description: "rounded charcuterie board with four ini utensils.",
         image: "https://i.postimg.cc/dt2G7NPN/Screenshot-2023-12-05-084947.png"
     },
     {
         id: 10,
         name: "Bear Candle",
-        price: "R80",
+        price: 80,
         description: "perfect gift for a baby shower or to display in a nursery room",
         image: "https://i.postimg.cc/Bnqvw3Qx/Screenshot-2023-12-05-085614.png"
     },
     {
         id: 11,
         name: "I Love You Candle",
-        price: "R75",
+        price: 75,
         description: "Love is in the air, quite literally... Amazing gift for date night or Valentines Day.",
         image: "https://i.postimg.cc/yxfS7tSk/Screenshot-2023-12-05-085650.png"
     },
     {
         id: 12,
         name: "Geometric Dining Set",
-        price: "R350",
+        price: 350,
         description: "12 Piece Rounded kitchenware with Geometric patterns. Includes 4 bowls, 4 side plates and 4 dinner plates.",
         image: "https://i.postimg.cc/1tfhj9dY/Screenshot-2023-12-05-084754.png",
         addToCart: ""
@@ -107,7 +109,7 @@ function displayProducts(){
             <img src="${products.image}" alt="${products.name}" class="images2">
         <h3>${products.name}</h3>
         <p>${products.description}</p>
-        <p>Price: ${products.price}</p>
+        <p>Price: R${products.price}</p>
         <button class="add-to-cart" data-id="${products.cart}" onclick='addPurchase(${JSON.stringify(products)})'>Add to Cart</button>
             `
         });
@@ -133,7 +135,7 @@ function displayProducts(){
             <img src="${product.image}" alt="${product.name}" class="images2">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <p>Price: ${product.price}</p>
+        <p>Price: R${product.price}</p>
         <button class="add-to-cart" data-id="${product.cart}" onclick='addPurchase(${JSON.stringify(product)})'>Add to Cart</button>
             `
         });
@@ -165,7 +167,7 @@ searchProducts.addEventListener('keyup', () => {
             <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
         <p>${product.description}</p>
-        <p>Price: ${product.price}</p>
+        <p>Price: R${product.price}</p>
         <button onclick='addPurchase(${JSON.stringify(product)})'>Add to Cart</button>
             `
         });
@@ -195,11 +197,11 @@ function productSort() {
 
     if(highest) {
         prod = products.sort((prod1, prod2) => {
-            return parseInt(prod1.price.split('').slice(1, prod1.price.length).join('')) - parseInt(prod2.price.split('').slice(1, prod2.price.length).join(''));
+            return prod1.price - prod2.price
         });
     }else {
         prod = products.sort((prod1, prod2) => {
-            return parseInt(prod2.price.split('').slice(1, prod2.price.length).join('')) - parseInt(prod1.price.split('').slice(1, prod1.price.length).join(''));
+            return prod2.price - prod1.price;
         });
     }
 
