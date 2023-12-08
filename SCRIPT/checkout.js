@@ -69,5 +69,23 @@ function displayUniqueProducts() {
 
 displayUniqueProducts();
 
-// user should be able to add a quantity as an input.
+let cartWrapper = document.querySelector('[table-checkout]')
+
+let btnPurchase = document.querySelector ('[purchase-remove]');
+function removePurchase(){
+  localStorage.clear(purchase)
+  cartWrapper.innerHTML = ''
+}
+btnPurchase.addEventListener('click', purchasedItem)
+
+function purchasedItem(){
+  if(cart){
+    alert('Thank you for purchasing.')
+    removePurchase();
+cartWrapper.innerHTML = '';
+
+  }else{
+    alert('Please add products to your cart.')
+  }
+}
 

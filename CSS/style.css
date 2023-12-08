@@ -302,37 +302,30 @@ form {
 }
 
 /* Checkout page */
-/* .trFont{
+.purchaseButton{
     text-align: center;
-    font-family: 'Lora', serif;
-}
-.spinner-border{
-    margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
-#sober{
-    display: flex;
-    float: left;
-    margin: 50px;
-    justify-content: space-between;
-}
-#column1{
-    display: flex;
-    float: left;
-    margin: 50px;
-    justify-content: space-between;
-}
-#tableStuff {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-} */
 
+/* admin page */
+.btnAdmin {
+    border-radius: 25px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3a5a40;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 15px;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: .4s;
+}
 
 /* footer */
 .footerAbout {

@@ -26,7 +26,7 @@ function adminContent(){
                       </div>
                       <div class="modal-body">
                         <label for="recipient-name" class="col-form-label">Price:</label>
-                        <input type="text" class="form-control" id="recipient-name">R${product.price}
+                        <input type="text" class="form-control" id="recipient-name" value="R${product.price}">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -85,11 +85,11 @@ function sortProducts(){
 
 // products.sort()
 // redisplay the products
-function UpdateAdminProduct(item, index) {
+function UpdateAdminProduct(products, index) {
   try{
-    this.id = item.id 
-    this.name = document.querySelector('').value
-
+    this.id = products.id 
+    this.name = document.querySelector(`#admin-name${products.id}`).value;
+    this.price = document.querySelector(`#admin-price${products.id}`).value;
     products[index] = Object.assign({}, this)
     localStorage.setItem('products', JSON.stringify(products));
     adminContent()
