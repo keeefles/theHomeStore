@@ -101,5 +101,5 @@ function calculateTotal(products) {
     return total;
    }
 let totalPrice = calculateTotal(price);
-let totalPriceElement = document.querySelector('[admin-price]');
+let totalPriceElement = document.querySelector('[display-total]');
 totalPriceElement.textContent = `Total Price: R${totalPrice}`;
