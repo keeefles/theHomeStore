@@ -160,11 +160,11 @@ addProductButton.addEventListener('click', function () {
 // clearbutton displays thanks for purchasing.
 let clear = document.querySelector('[admin-clear]');
 clear.addEventListener('click', function () {
-    // Clear the modal inputs (modify as per your modal structure)
-    document.getElementById('admin-name').value = '';
-    document.getElementById('admin-image').value = '';
-    document.getElementById('admin-description').value = '';
-    document.getElementById('admin-price').value = '';
+
+    document.querySelector('[admin-name]').value = '';
+    document.querySelector('[admin-image]').value = '';
+    document.querySelector('[admin-description]').value = '';
+    document.querySelector('[admin-price]').value = '';
 
     alert('Thanks for purchasing!');
 });
