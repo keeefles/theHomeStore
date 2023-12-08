@@ -13,8 +13,8 @@ function displayProducts(){
             <tr>
             <th scope="row"><img src="${products.image}"></th>
             <td>${products.name}</td>
-            <td><input type="number" value="${products.quantity}" min="1" step="1" data-index="${i}" class="quantity-input"></td> 
-            <td>${products.price}</td>
+            <td value="${products.quantity}" class="quantity-input"></td> 
+            <td>R${products.price}</td>
         </tr>
         `
         });  
@@ -53,9 +53,9 @@ function displayUniqueProducts() {
             productsWrapper.innerHTML += `
                 <tr>
                     <th scope="row"><img src="${product.image}"></th>
-                    <td>${product.name}</td>
-                    <td>${product.quantity}</td> 
-                    <td>${product.price}</td>
+                    <td>${product.name}</td> 
+                    <td value="${product.quantity}" class="quantity-input"></td>
+                    <td>R${product.price}</td>
                 </tr>
             `;
         });
@@ -66,6 +66,7 @@ function displayUniqueProducts() {
         </div>`;
     }
 }
+
 
 displayUniqueProducts();
 
@@ -89,3 +90,16 @@ cartWrapper.innerHTML = '';
   }
 }
 
+function calculateTotal(products) {
+    let total = 0;
+   
+    for (let i = 0; i < products.length; i++) {
+       let product = products[i];
+       total += product.price;
+    }
+   
+    return total;
+   }
+let totalPrice = calculateTotal(price);
+let totalPriceElement = document.querySelector('[admin-price]');
+totalPriceElement.textContent = `Total Price: R${totalPrice}`;

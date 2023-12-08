@@ -38,8 +38,8 @@ function adminContent(){
                 </td>
             </tr>
             `
-        })
-    }catch(e){
+          })
+        }catch(e){
     }
 }
 adminContent()
@@ -85,15 +85,35 @@ function sortProducts(){
 
 // products.sort()
 // redisplay the products
+// function UpdateAdminProduct(products, index) {
+//   try{
+//     this.id = products.id 
+//     this.name = document.querySelector(`#admin-name${products.id}`).value;
+//     this.price = document.querySelector(`#admin-price${products.id}`).value;
+//     products[index] = Object.assign({}, this)
+//     localStorage.setItem('products', JSON.stringify(products));
+//     adminContent()
+//   }catch(e){
+
+//   }
+// }
 function UpdateAdminProduct(products, index) {
   try{
-    this.id = products.id 
-    this.name = document.querySelector(`#admin-name${products.id}`).value;
-    this.price = document.querySelector(`#admin-price${products.id}`).value;
-    products[index] = Object.assign({}, this)
-    localStorage.setItem('products', JSON.stringify(products));
-    adminContent()
+     let id = products.id;
+     let name = document.querySelector(`#recipient-name${id}`).value;
+     let price = document.querySelector(`#recipient-price${id}`).value;
+ 
+     let updatedProduct = {
+       id: id,
+       name: name,
+       price: price,
+       image: products.image,
+     };
+ 
+     products[index] = updatedProduct;
+     localStorage.setItem('products', JSON.stringify(products));
+     adminContent();
   }catch(e){
-
+     console.log(e.message);
   }
-}
+ }
