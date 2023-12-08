@@ -316,6 +316,11 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #fff;
+    background-color: #3a5a40;
+    border: none;
+    padding: 5px;
+    border-radius: 15px;
 }
 
 /* admin page */
